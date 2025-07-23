@@ -1,0 +1,872 @@
+[
+    {
+      "theme": "api-index",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/api-index.md",
+      "html_url": "https://docs.swanlab.cn/api/api-index.html",
+      "title": "API文档"
+    },
+    {
+      "theme": "cli-swanlab-convert",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/cli-swanlab-convert.md",
+      "html_url": "https://docs.swanlab.cn/api/cli-swanlab-convert.html",
+      "title": "swanlab convert"
+    },
+    {
+      "theme": "cli-swanlab-login",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/cli-swanlab-login.md",
+      "html_url": "https://docs.swanlab.cn/api/cli-swanlab-login.html",
+      "title": "swanlab login"
+    },
+    {
+      "theme": "cli-swanlab-logout",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/cli-swanlab-logout.md",
+      "html_url": "https://docs.swanlab.cn/api/cli-swanlab-logout.html",
+      "title": "swanlab logout"
+    },
+    {
+      "theme": "cli-swanlab-other",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/cli-swanlab-other.md",
+      "html_url": "https://docs.swanlab.cn/api/cli-swanlab-other.html",
+      "title": "其他CLI命令"
+    },
+    {
+      "theme": "cli-swanlab-sync",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/cli-swanlab-sync.md",
+      "html_url": "https://docs.swanlab.cn/api/cli-swanlab-sync.html",
+      "title": "swanlab sync"
+    },
+    {
+      "theme": "cli-swanlab-watch",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/cli-swanlab-watch.md",
+      "html_url": "https://docs.swanlab.cn/api/cli-swanlab-watch.html",
+      "title": "swanlab watch"
+    },
+    {
+      "theme": "environment-variable",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/environment-variable.md",
+      "html_url": "https://docs.swanlab.cn/api/environment-variable.html",
+      "title": "环境变量"
+    },
+    {
+      "theme": "py-Audio",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-Audio.md",
+      "html_url": "https://docs.swanlab.cn/api/py-Audio.html",
+      "title": "swanlab.Audio"
+    },
+    {
+      "theme": "py-Image",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-Image.md",
+      "html_url": "https://docs.swanlab.cn/api/py-Image.html",
+      "title": "swanlab.Image"
+    },
+    {
+      "theme": "py-Text",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-Text.md",
+      "html_url": "https://docs.swanlab.cn/api/py-Text.html",
+      "title": "swanlab.Text"
+    },
+    {
+      "theme": "py-converter",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-converter.md",
+      "html_url": "https://docs.swanlab.cn/api/py-converter.html",
+      "title": "swanlab.converter"
+    },
+    {
+      "theme": "py-echarts",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-echarts.md",
+      "html_url": "https://docs.swanlab.cn/api/py-echarts.html",
+      "title": "swanlab.echarts"
+    },
+    {
+      "theme": "py-init",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-init.md",
+      "html_url": "https://docs.swanlab.cn/api/py-init.html",
+      "title": "swanlab.init"
+    },
+    {
+      "theme": "py-integration",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-integration.md",
+      "html_url": "https://docs.swanlab.cn/api/py-integration.html",
+      "title": "swanlab.integration"
+    },
+    {
+      "theme": "py-log",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-log.md",
+      "html_url": "https://docs.swanlab.cn/api/py-log.html",
+      "title": "log"
+    },
+    {
+      "theme": "py-login",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-login.md",
+      "html_url": "https://docs.swanlab.cn/api/py-login.html",
+      "title": "swanlab.login"
+    },
+    {
+      "theme": "py-molecule",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-molecule.md",
+      "html_url": "https://docs.swanlab.cn/api/py-molecule.html",
+      "title": "swanlab.Molecule"
+    },
+    {
+      "theme": "py-object3d",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-object3d.md",
+      "html_url": "https://docs.swanlab.cn/api/py-object3d.html",
+      "title": "swanlab.Object3D"
+    },
+    {
+      "theme": "py-openapi",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-openapi.md",
+      "html_url": "https://docs.swanlab.cn/api/py-openapi.html",
+      "title": "swanlab.OpenApi"
+    },
+    {
+      "theme": "py-other",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-other.md",
+      "html_url": "https://docs.swanlab.cn/api/py-other.html",
+      "title": "其他Python API"
+    },
+    {
+      "theme": "py-register-callback",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-register-callback.md",
+      "html_url": "https://docs.swanlab.cn/api/py-register-callback.html",
+      "title": "swanlab.register_callback"
+    },
+    {
+      "theme": "py-run",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-run.md",
+      "html_url": "https://docs.swanlab.cn/api/py-run.html",
+      "title": "run"
+    },
+    {
+      "theme": "py-settings",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-settings.md",
+      "html_url": "https://docs.swanlab.cn/api/py-settings.html",
+      "title": "swanlab.Settings"
+    },
+    {
+      "theme": "py-sync-mlflow",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-sync-mlflow.md",
+      "html_url": "https://docs.swanlab.cn/api/py-sync-mlflow.html",
+      "title": "swanlab.sync_mlflow"
+    },
+    {
+      "theme": "py-sync-tensorboard",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-sync-tensorboard.md",
+      "html_url": "https://docs.swanlab.cn/api/py-sync-tensorboard.html",
+      "title": "swanlab.sync_tensorboard"
+    },
+    {
+      "theme": "py-sync-wandb",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/api/py-sync-wandb.md",
+      "html_url": "https://docs.swanlab.cn/api/py-sync-wandb.html",
+      "title": "swanlab.sync_wandb"
+    },
+    {
+      "theme": "audio_classification",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/audio_classification.md",
+      "html_url": "https://docs.swanlab.cn/examples/audio_classification.html",
+      "title": "音频分类"
+    },
+    {
+      "theme": "bert",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/bert.md",
+      "html_url": "https://docs.swanlab.cn/examples/bert.html",
+      "title": "BERT文本分类"
+    },
+    {
+      "theme": "cats_dogs_classification",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/cats_dogs_classification.md",
+      "html_url": "https://docs.swanlab.cn/examples/cats_dogs_classification.html",
+      "title": "猫狗分类"
+    },
+    {
+      "theme": "cifar10",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/cifar10.md",
+      "html_url": "https://docs.swanlab.cn/examples/cifar10.html",
+      "title": "CIFAR10 图像分类"
+    },
+    {
+      "theme": "dqn_cartpole",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/dqn_cartpole.md",
+      "html_url": "https://docs.swanlab.cn/examples/dqn_cartpole.html",
+      "title": "DQN-CartPole"
+    },
+    {
+      "theme": "fashionmnist",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/fashionmnist.md",
+      "html_url": "https://docs.swanlab.cn/examples/fashionmnist.html",
+      "title": "FashionMNIST"
+    },
+    {
+      "theme": "glm4-instruct",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/glm4-instruct.md",
+      "html_url": "https://docs.swanlab.cn/examples/glm4-instruct.html",
+      "title": "使用ChatGLM4进行大模型指令遵从微调"
+    },
+    {
+      "theme": "hello_world",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/hello_world.md",
+      "html_url": "https://docs.swanlab.cn/examples/hello_world.html",
+      "title": "Hello World"
+    },
+    {
+      "theme": "lstm_stock",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/lstm_stock.md",
+      "html_url": "https://docs.swanlab.cn/examples/lstm_stock.html",
+      "title": "LSTM股票预测"
+    },
+    {
+      "theme": "mnist",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/mnist.md",
+      "html_url": "https://docs.swanlab.cn/examples/mnist.html",
+      "title": "MNIST手写体识别"
+    },
+    {
+      "theme": "ner",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/ner.md",
+      "html_url": "https://docs.swanlab.cn/examples/ner.html",
+      "title": "Qwen2命名实体识别"
+    },
+    {
+      "theme": "openMind",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/openMind.md",
+      "html_url": "https://docs.swanlab.cn/examples/openMind.html",
+      "title": "openMind大模型微调教程"
+    },
+    {
+      "theme": "pretrain_llm",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/pretrain_llm.md",
+      "html_url": "https://docs.swanlab.cn/examples/pretrain_llm.html",
+      "title": "从零预训练一个自己的大模型"
+    },
+    {
+      "theme": "qwen3-medical",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/qwen3-medical.md",
+      "html_url": "https://docs.swanlab.cn/examples/qwen3-medical.html",
+      "title": "Qwen3大模型微调实战：医学推理对话"
+    },
+    {
+      "theme": "qwen3_smolvlm_muxi",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/qwen3_smolvlm_muxi.md",
+      "html_url": "https://docs.swanlab.cn/examples/qwen3_smolvlm_muxi.html",
+      "title": "Qwen3-\"VL\"——超小中文多模态模型的“拼接微调”之路1（附代码和SwanLab记录）"
+    },
+    {
+      "theme": "qwen_finetune",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/qwen_finetune.md",
+      "html_url": "https://docs.swanlab.cn/examples/qwen_finetune.html",
+      "title": "Qwen1.5微调案例"
+    },
+    {
+      "theme": "qwen_grpo",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/qwen_grpo.md",
+      "html_url": "https://docs.swanlab.cn/examples/qwen_grpo.html",
+      "title": "Qwen2.5复现DeepSeek-R1-ZERO"
+    },
+    {
+      "theme": "qwen_vl_coco",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/qwen_vl_coco.md",
+      "html_url": "https://docs.swanlab.cn/examples/qwen_vl_coco.html",
+      "title": "Qwen2-VL多模态大模型微调实战"
+    },
+    {
+      "theme": "stable_diffusion",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/stable_diffusion.md",
+      "html_url": "https://docs.swanlab.cn/examples/stable_diffusion.html",
+      "title": "Stable Diffusion文生图微调"
+    },
+    {
+      "theme": "unet-medical-segmentation",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/unet-medical-segmentation.md",
+      "html_url": "https://docs.swanlab.cn/examples/unet-medical-segmentation.html",
+      "title": "UNet 医学影像分割"
+    },
+    {
+      "theme": "yolo",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/examples/yolo.md",
+      "html_url": "https://docs.swanlab.cn/examples/yolo.html",
+      "title": "Yolo目标检测"
+    },
+    {
+      "theme": "contributing-code",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/community/contributing-code.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/community/contributing-code.html",
+      "title": "为 SwanLab 作出贡献"
+    },
+    {
+      "theme": "contributing-docs",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/community/contributing-docs.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/community/contributing-docs.html",
+      "title": "为SwanLab官方文档做贡献"
+    },
+    {
+      "theme": "emotion-machine",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/community/emotion-machine.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/community/emotion-machine.html",
+      "title": "关于我们"
+    },
+    {
+      "theme": "github-badge",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/community/github-badge.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/community/github-badge.html",
+      "title": "Github README徽章"
+    },
+    {
+      "theme": "online-support",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/community/online-support.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/community/online-support.html",
+      "title": "在线支持"
+    },
+    {
+      "theme": "paper-cite",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/community/paper-cite.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/community/paper-cite.html",
+      "title": "在论文中引用SwanLab"
+    },
+    {
+      "theme": "FAQ",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/FAQ.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/FAQ.html",
+      "title": "FAQ"
+    },
+    {
+      "theme": "create-experiment-by-configfile",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/create-experiment-by-configfile.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/create-experiment-by-configfile.html",
+      "title": "用配置文件创建实验"
+    },
+    {
+      "theme": "create-experiment",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/create-experiment.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/create-experiment.html",
+      "title": "创建一个实验"
+    },
+    {
+      "theme": "environment",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/environment.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/environment.html",
+      "title": ""
+    },
+    {
+      "theme": "experiment-metadata",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/experiment-metadata.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/create-experiment-by-configfile.html",
+      "title": "实验元数据"
+    },
+    {
+      "theme": "finish-experiment",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/finish-experiment.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/finish-experiment.html",
+      "title": "结束一个实验"
+    },
+    {
+      "theme": "jupyter-notebook",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/jupyter-notebook.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/jupyter-notebook.html",
+      "title": "用 Notebook 跟踪实验"
+    },
+    {
+      "theme": "limit-and-performance",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/limit-and-performance.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/limit-and-performance.html",
+      "title": "限制与性能"
+    },
+    {
+      "theme": "log-custom-3dchart",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/log-custom-3dchart.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/log-custom-3dchart.html",
+      "title": "记录自定义3D图表"
+    },
+    {
+      "theme": "log-custom-chart",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/log-custom-chart.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/log-custom-chart.html",
+      "title": "记录自定义图表"
+    },
+    {
+      "theme": "log-experiment-metric",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/log-experiment-metric.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/log-experiment-metric.html",
+      "title": "记录实验指标"
+    },
+    {
+      "theme": "log-media",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/log-media.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/log-media.html",
+      "title": "记录媒体数据"
+    },
+    {
+      "theme": "resume-experiment",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/resume-experiment.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/resume-experiment.html",
+      "title": "恢复实验/断点续训"
+    },
+    {
+      "theme": "send-notification",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/send-notification.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/send-notification.html",
+      "title": "邮件/第三方通知"
+    },
+    {
+      "theme": "set-experiment-config",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/set-experiment-config.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/set-experiment-config.html",
+      "title": "设置实验配置"
+    },
+    {
+      "theme": "set-experiment-tag",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/set-experiment-tag.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/set-experiment-tag.html",
+      "title": "设置实验Tag"
+    },
+    {
+      "theme": "ssh-portforwarding",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/ssh-portforwarding.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/ssh-portforwarding.html",
+      "title": "在内网计算节点访问SwanLab Cloud"
+    },
+    {
+      "theme": "system-monitor",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/system-monitor.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/system-monitor.html",
+      "title": "系统硬件监控"
+    },
+    {
+      "theme": "view-result",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/view-result.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/view-result.html",
+      "title": "查看实验结果"
+    },
+    {
+      "theme": "what-is-experiment-track",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/experiment_track/what-is-experiment-track.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/experiment_track/what-is-experiment-track.html",
+      "title": "什么是实验跟踪"
+    },
+    {
+      "theme": "app",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/general/app.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/general/app.html",
+      "title": "在手机上使用SwanLab"
+    },
+    {
+      "theme": "changelog",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/general/changelog.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/general/changelog.html",
+      "title": "更新日志"
+    },
+    {
+      "theme": "organization",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/general/organization.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/general/organization.html",
+      "title": "团队使用SwanLab"
+    },
+    {
+      "theme": "quick-start",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/general/quick-start.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/general/quick-start.html",
+      "title": "快速开始"
+    },
+    {
+      "theme": "what-is-swanlab",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/general/what-is-swanlab.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/general/what-is-swanlab.html",
+      "title": "欢迎使用SwanLab"
+    },
+    {
+      "theme": "index",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/index.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/index.html",
+      "title": "集成框架一览"
+    },
+    {
+      "theme": "integration-any-library",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-any-library.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-any-library.html",
+      "title": "将SwanLab集成到你的库"
+    },
+    {
+      "theme": "integration-areal",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-areal.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-areal.html",
+      "title": "AREAL"
+    },
+    {
+      "theme": "integration-argparse",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-argparse.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-argparse.html",
+      "title": "Argparse"
+    },
+    {
+      "theme": "integration-ascend",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-ascend.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-ascend.html",
+      "title": "Ascend NPU & MindSpore"
+    },
+    {
+      "theme": "integration-diffsynth-studio",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-diffsynth-studio.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-diffsynth-studio.html",
+      "title": "DiffSynth Studio"
+    },
+    {
+      "theme": "integration-easyr1",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-easyr1.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-easyr1.html",
+      "title": "EasyR1"
+    },
+    {
+      "theme": "integration-evalscope",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-evalscope.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-evalscope.html",
+      "title": "EvalScope"
+    },
+    {
+      "theme": "integration-fastai",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-fastai.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-fastai.html",
+      "title": "fastai"
+    },
+    {
+      "theme": "integration-huggingface-accelerate",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-huggingface-accelerate.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-huggingface-accelerate.html",
+      "title": "HuggingFace Accelerate"
+    },
+    {
+      "theme": "integration-huggingface-transformers",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-huggingface-transformers.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-huggingface-transformers.html",
+      "title": "HuggingFace Transformers"
+    },
+    {
+      "theme": "integration-huggingface-trl",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-huggingface-trl.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-huggingface-trl.html",
+      "title": "HuggingFace Trl"
+    },
+    {
+      "theme": "integration-hydra",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-hydra.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-hydra.html",
+      "title": "Hydra"
+    },
+    {
+      "theme": "integration-keras",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-keras.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-keras.html",
+      "title": "Keras"
+    },
+    {
+      "theme": "integration-lightgbm",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-lightgbm.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-lightgbm.html",
+      "title": "LightGBM"
+    },
+    {
+      "theme": "integration-llama-factory",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-llama-factory.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-llama-factory.html",
+      "title": "LLaMA Factory"
+    },
+    {
+      "theme": "integration-mlflow",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-mlflow.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-mlflow.html",
+      "title": "MLFlow"
+    },
+    {
+      "theme": "integration-mmdetection",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-mmdetection.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-mmdetection.html",
+      "title": "MMDetection"
+    },
+    {
+      "theme": "integration-mmengine",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-mmengine.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-mmengine.html",
+      "title": "MMEngine"
+    },
+    {
+      "theme": "integration-mmpretrain",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-mmpretrain.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-mmpretrain.html",
+      "title": "MMPretrain"
+    },
+    {
+      "theme": "integration-mmsegmentation",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-mmsegmentation.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-mmsegmentation.html",
+      "title": "MMSegmentation"
+    },
+    {
+      "theme": "integration-omegaconf",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-omegaconf.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-omegaconf.html",
+      "title": "Omegaconf"
+    },
+    {
+      "theme": "integration-openai",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-openai.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-openai.html",
+      "title": "OpenAI"
+    },
+    {
+      "theme": "integration-paddledetection",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-paddledetection.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-paddledetection.html",
+      "title": "PaddleDetection"
+    },
+    {
+      "theme": "integration-paddlenlp",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-paddlenlp.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-paddlenlp.html",
+      "title": "PaddleNLP"
+    },
+    {
+      "theme": "integration-paddleyolo",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-paddleyolo.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-paddleyolo.html",
+      "title": "PaddleYolo"
+    },
+    {
+      "theme": "integration-pytorch-lightning",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-pytorch-lightning.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-pytorch-lightning.html",
+      "title": "PyTorch Lightning"
+    },
+    {
+      "theme": "integration-pytorch-torchtune",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-pytorch-torchtune.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-pytorch-torchtune.html",
+      "title": "Torchtune"
+    },
+    {
+      "theme": "integration-pytorch",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-pytorch.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-pytorch.html",
+      "title": "PyTorch"
+    },
+    {
+      "theme": "integration-ray",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-ray.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-ray.html",
+      "title": "Ray"
+    },
+    {
+      "theme": "integration-roll",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-roll.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-roll.html",
+      "title": "ROLL"
+    },
+    {
+      "theme": "integration-sb3",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-sb3.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-sb3.html",
+      "title": "Stable-Baseline3"
+    },
+    {
+      "theme": "integration-sentence-transformers",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-sentence-transformers.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-sentence-transformers.html",
+      "title": "Sentence Transformers"
+    },
+    {
+      "theme": "integration-swift",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-swift.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-swift.html",
+      "title": "Modelscope Swift"
+    },
+    {
+      "theme": "integration-tensorboard",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-tensorboard.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-tensorboard.html",
+      "title": "Tensorboard"
+    },
+    {
+      "theme": "integration-ultralytics",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-ultralytics.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-ultralytics.html",
+      "title": "Ultralytics"
+    },
+    {
+      "theme": "integration-unsloth",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-unsloth.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-unsloth.html",
+      "title": "Unsloth"
+    },
+    {
+      "theme": "integration-verl",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-verl.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-verl.html",
+      "title": "verl"
+    },
+    {
+      "theme": "integration-wandb",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-wandb.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-wandb.html",
+      "title": "Weights & Biases"
+    },
+    {
+      "theme": "integration-xgboost",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-xgboost.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-xgboost.html",
+      "title": "XGBoost"
+    },
+    {
+      "theme": "integration-xtuner",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-xtuner.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-xtuner.html",
+      "title": "Xtuner"
+    },
+    {
+      "theme": "integration-zhipuai",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/integration/integration-zhipuai.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/integration/integration-zhipuai.html",
+      "title": "ZhipuAI"
+    },
+    {
+      "theme": "alibabacloud-computenest",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/alibabacloud-computenest.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/alibabacloud-computenest.html",
+      "title": "阿里云计算巢应用部署"
+    },
+    {
+      "theme": "docker-deploy",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/docker-deploy.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/docker-deploy.html",
+      "title": "使用Docker进行部署"
+    },
+    {
+      "theme": "enterprise-version",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/enterprise-version.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/enterprise-version.html",
+      "title": "团队/企业版"
+    },
+    {
+      "theme": "faq",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/faq.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/faq.html",
+      "title": "常见问题"
+    },
+    {
+      "theme": "offline-board-api",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/offline-board-api.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/offline-board-api.html",
+      "title": "离线看板接口文档"
+    },
+    {
+      "theme": "offline-board",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/offline-board.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/offline-board.html",
+      "title": "离线看板"
+    },
+    {
+      "theme": "offline-deployment",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/offline-deployment.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/offline-deployment.html",
+      "title": "纯离线环境部署"
+    },
+    {
+      "theme": "remote-view",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/remote-view.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/remote-view.html",
+      "title": "远程访问离线看板"
+    },
+    {
+      "theme": "tencentcloud-app",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/tencentcloud-app.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/tencentcloud-app.html",
+      "title": "腾讯云应用部署"
+    },
+    {
+      "theme": "version",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/guide_cloud/self_host/version.md",
+      "html_url": "https://docs.swanlab.cn/guide_cloud/self_host/version.html",
+      "title": "版本对照表"
+    },
+    {
+      "theme": "index",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/index.md",
+      "html_url": "https://docs.swanlab.cn/index.html",
+      "title": ""
+    },
+    {
+      "theme": "custom-plugin",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/custom-plugin.md",
+      "html_url": "https://docs.swanlab.cn/plugin/custom-plugin.html",
+      "title": "制作你的自定义插件"
+    },
+    {
+      "theme": "notification-dingtalk",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/notification-dingtalk.md",
+      "html_url": "https://docs.swanlab.cn/plugin/notification-dingtalk.html",
+      "title": "钉钉"
+    },
+    {
+      "theme": "notification-discord",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/notification-discord.md",
+      "html_url": "https://docs.swanlab.cn/plugin/notification-discord.html",
+      "title": "Discord"
+    },
+    {
+      "theme": "notification-email",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/notification-email.md",
+      "html_url": "https://docs.swanlab.cn/plugin/notification-email.html",
+      "title": "邮件通知"
+    },
+    {
+      "theme": "notification-lark",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/notification-lark.md",
+      "html_url": "https://docs.swanlab.cn/plugin/notification-lark.html",
+      "title": "飞书通知"
+    },
+    {
+      "theme": "notification-slack",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/notification-slack.md",
+      "html_url": "https://docs.swanlab.cn/plugin/notification-slack.html",
+      "title": "Slack"
+    },
+    {
+      "theme": "notification-wxwork",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/notification-wxwork.md",
+      "html_url": "https://docs.swanlab.cn/plugin/notification-wxwork.html",
+      "title": "企业微信"
+    },
+    {
+      "theme": "plugin-index",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/plugin-index.md",
+      "html_url": "https://docs.swanlab.cn/plugin/plugin-index.html",
+      "title": "插件一览"
+    },
+    {
+      "theme": "shared-snippet",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/shared-snippet.md",
+      "html_url": "https://docs.swanlab.cn/plugin/shared-snippet.html",
+      "title": "SwanLab与其他框架的集成"
+    },
+    {
+      "theme": "writer-csv",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/writer-csv.md",
+      "html_url": "https://docs.swanlab.cn/plugin/writer-csv.html",
+      "title": "CSV表格记录器"
+    },
+    {
+      "theme": "writer-filelogdir",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/plugin/writer-filelogdir.md",
+      "html_url": "https://docs.swanlab.cn/plugin/writer-filelogdir.html",
+      "title": "文件记录器"
+    },
+    {
+      "theme": "custom-charts-3d",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/shared/custom-charts-3d.md",
+      "html_url": "https://docs.swanlab.cn/shared/custom-charts-3d.html",
+      "title": "定义数据"
+    },
+    {
+      "theme": "custom-charts",
+      "url": "https://raw.githubusercontent.com/SwanHubX/SwanLab-Docs/main/zh/shared/custom-charts.md",
+      "html_url": "https://docs.swanlab.cn/shared/custom-charts.html",
+      "title": "定义数据"
+    }
+]

@@ -1,0 +1,9 @@
+#忽略test文件
+test/
+
+#忽略用户数据
+data/
+
+#忽略 faiss_index_scratch
+faiss_index_scratch/
+

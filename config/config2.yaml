@@ -1,0 +1,14 @@
+llm:
+  api_key: "sk-cabccf93fa3c416e85c629b1e2e4cde5"
+  api_type: "openai"  # 如果 DeepSeek API 兼容 OpenAI 格式，保留；否则改为 "deepseek" 或其他
+  model: "deepseek-ai/DeepSeek-V3"
+  base_url: "http://nexusgate-backend:3000/v1"
+
+
+embedding:
+  api_type: "openai"
+  base_url: "http://api.siliconflow.cn/v1"
+  api_key: "sk-ebaafxbagclzofzsruircunkmyizeytezzkkgdilzydpdxae"
+  model: "Qwen/Qwen3-Embedding-0.6B"
+  dimensions: 1024
+  batch_size: 16

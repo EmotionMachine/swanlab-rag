@@ -1,0 +1,5 @@
+llm:
+  api_type: "openai"  # 或 "groq" 等
+  model: "Qwen/Qwen2.5-32B-Instruct"  # 或 "grok-3"
+  api_key: "sk-ebaafxbagclzofzsruircunkmyizeytezzkkgdilzydpdxae"
+  base_url: "https://api.siliconflow.cn/v1"  # 或其他LLM服务URL
