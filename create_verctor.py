@@ -7,7 +7,7 @@ import time
 
 # --- 配置信息 ---
 # 源文档路径
-SOURCE_DOCUMENT_PATH = "./Search/document_blocks.txt"
+SOURCE_DOCUMENT_PATH = "Search/test/document_blocks.txt"
 # 本地向量数据库的保存路径
 FAISS_INDEX_PATH = "faiss_index_scratch_1"
 

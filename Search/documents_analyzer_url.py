@@ -8,7 +8,7 @@ from pathlib import Path
 import time
 
 # 配置日志
-log_path = os.path.join(os.path.dirname(__file__), "document_processor.log")
+log_path = os.path.join(os.path.dirname(__file__), "test/document_processor.log")
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -270,7 +270,7 @@ async def main():
     """主函数，处理JSON文件中的文档列表"""
     # 读取 JSON 文件
     try:
-        with open('swanlab_docs_Internet8-2.json', 'r', encoding='utf-8') as f:
+        with open('test/swanlab_docs_Internet8-2.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
     except FileNotFoundError:
         logging.error("Error: swanlab.json not found")
@@ -306,7 +306,7 @@ async def main():
 
     # 写回 JSON 文件
     try:
-        with open('swanlab_docs_Internet-1.json', 'w', encoding='utf-8') as f:
+        with open('test/swanlab_docs_Internet-1.json', 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         logging.info("JSON file updated successfully")
     except Exception as e:

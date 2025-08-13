@@ -7,25 +7,12 @@ data/
 #忽略 faiss_index_scratch
 faiss_index_scratch/
 
-Search/logs/20250801.txt
 
-Search/swanlab_docs_Internet-1.json
+image/
 
-Search/swanlab_docs_Internet8-2.json
+Search/test
 
-Search/document_blocks.txt
-
-Search/test.json
-
-chat_logic_deploy_feishu.py
-
-feishu_sync.py
-
-swanlab_docs_Internet8-2.json
-
-feishu_qa_data.json
-
-get_knowledge.py
+key/
 
 
 
