@@ -2,7 +2,7 @@ import json
 import os
 import logging
 
-# Configure logging
+# Configure logging  拼接json文件中分块的内容
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -57,6 +57,6 @@ def extract_fields_to_txt(json_file_path: str, output_txt_path: str = "extracted
         logging.error(f"Unexpected error: {str(e)}")
 
 if __name__ == "__main__":
-    json_file_path = 'swanlab-1.json'
-    output_txt_path = 'swanlab.txt'
+    json_file_path = 'swanlab-1.json'  #选择你的json文件
+    output_txt_path = 'swanlab.txt'    #保存到的地址
     extract_fields_to_txt(json_file_path, output_txt_path)

@@ -6,6 +6,8 @@ import re
 import time
 import logging
 
+##获取swanlab官网的所有的文档
+
 # 配置日志
 logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
 logger = logging.getLogger(__name__)
@@ -156,9 +158,9 @@ def scrape_web_docs(repo_url, base_html_url="https://docs.swanlab.cn", token=Non
 
 
 if __name__ == "__main__":
-    repo_url = "https://github.com/SwanHubX/SwanLab-Docs/tree/main/zh"
-    base_html_url = "https://docs.swanlab.cn"
-    github_token = "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"  # 替换为你的GitHub Token，或留空
+    repo_url = " "  #填写文档地址
+    base_html_url = " "  #文档网页地址 例如：https://docs.swanlab.cn
+    github_token = "替换为你的GitHub Token"  # 替换为你的GitHub Token，或留空
     scrape_web_docs(repo_url, base_html_url, github_token)
 
 

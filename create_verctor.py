@@ -12,9 +12,9 @@ SOURCE_DOCUMENT_PATH = "Search/document_blocks.txt"
 FAISS_INDEX_PATH = "faiss_index_scratch_1"
 
 # Embedding 模型配置
-EMBEDDING_MODEL = "Qwen/Qwen3-Embedding-0.6B"
-API_KEY = "sk-ebaafxbagclzofzsruircunkmyizeytezzkkgdilzydpdxae"
-BASE_URL = "http://api.siliconflow.cn/v1"
+EMBEDDING_MODEL = "填写Embedding模型"##Qwen/Qwen3-Embedding-0.6B
+API_KEY = "填写API_KEY"
+BASE_URL = "填写API的base_url"
 VECTOR_DIMENSION = 1024  # 向量维度
 
 
@@ -72,7 +72,7 @@ def get_embeddings_from_api(texts: list[str], batch_size: int = 16) -> list[list
             # 这里我们选择停止，因为数据不完整可能导致后续问题
             raise
 
-        # 友好的速率限制，避免过于频繁地请求API
+        # 速率限制，避免过于频繁地请求API
         time.sleep(0.1)
 
     return all_embeddings

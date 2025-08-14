@@ -7,6 +7,8 @@ import logging
 from pathlib import Path
 import time
 
+##对获取的MarkDown文档进行分块
+
 # 配置日志
 log_path = os.path.join(os.path.dirname(__file__), "test/document_processor.log")
 logging.basicConfig(

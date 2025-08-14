@@ -17,10 +17,11 @@ class Chatbot:
         print("正在初始化 Chatbot...")
         self.FAISS_INDEX_PATH = index_path
         self.URL_MAP_PATH = url_map_path
-        self.API_KEY = "sk-ebaafxbagclzofzsruircunkmyizeytezzkkgdilzydpdxae"
-        self.BASE_URL = "http://api.siliconflow.cn/v1"
-        self.EMBEDDING_MODEL = "Qwen/Qwen3-Embedding-0.6B"
-        self.LLM_MODEL = "deepseek-ai/DeepSeek-V3"
+        # 配置LLM参数
+        self.API_KEY = "填写API_KEY"
+        self.BASE_URL = "填写API的base_url"
+        self.EMBEDDING_MODEL = "填写Embedding模型"
+        self.LLM_MODEL = "填写LLM模型"
         self.VECTOR_DIMENSION = 1024
 
         self.db = self._init_database(db_path)
