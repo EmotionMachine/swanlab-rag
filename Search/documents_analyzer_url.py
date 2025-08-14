@@ -21,7 +21,7 @@ logging.basicConfig(
 )
 
 # 配置GitHub Token（替换为你的Token）
-GITHUB_TOKEN = "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"  # 替换为 'ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+GITHUB_TOKEN = "# 替换为 'ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"  # 替换为 'ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
 
 async def check_rate_limit(session):

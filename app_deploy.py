@@ -428,7 +428,7 @@ def update_user_exit():
 if __name__ == "__main__":
     demo.launch(
         server_name="0.0.0.0",
-        server_port=443, #选择端口
+        server_port=7860, #选择端口
         share=True,
         ssl_keyfile="私钥路径",  #私钥路径
         ssl_certfile="公钥路径"  #公钥路径
