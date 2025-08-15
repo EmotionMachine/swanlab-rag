@@ -2,6 +2,7 @@ import gradio as gr
 from chat_logic_deploy import Chatbot
 import uuid
 from flask import Flask, request, jsonify
+import base64
 
 # 初始化后端
 print("正在创建 Chatbot 实例...")
@@ -50,236 +51,783 @@ def handle_feedback(feedback_choice, last_id):
         gr.Warning("当前没有可以反馈的问答。")
         return
     feedback_result = chatbot_instance.add_feedback(last_id, feedback_choice.lower())
-    # gr.Info(feedback_result)
+    gr.Info(feedback_result)
 
 
 def get_example_questions():
     return [
         "SwanLab是什么？",
         "如何安装SwanLab？",
-        "SwanLab支持哪些实验跟踪功能？",
-        "如何使用SwanLab进行超参数优化？",
-        "SwanLab如何与PyTorch集成？"
+        "如何使用SwanLab记录指标？",
+        "SwanLab如何与Transformers集成？",
+        "MNIST手写体识别教程？"
     ]
 
+def get_integrated_docs():
+    return [
+        "SwanLab",
+        "PyTorch",
+        "Transformers"
+    ]
 
 # 自定义CSS样式
 custom_css = """
-/* 全局样式 */
+/* 全局样式和字体 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 body, .gradio-container { 
     font-family: "Inter", "Helvetica Neue", "Helvetica", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "Arial", sans-serif !important; 
+    background: linear-gradient(135deg, #f8fbff 0%, #eef3ff 50%, #eaf7f5 100%) !important; /* 更浅更柔和的渐变 */
+    min-height: 100vh !important;
+    position: relative;
+    overflow-x: hidden;
 }
+
+/* 动态背景粒子效果 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1000px 400px at -10% 20%, rgba(102, 126, 234, 0.08), transparent 60%), /* 左侧柔和装饰 */
+        radial-gradient(800px 300px at 110% 70%, rgba(118, 75, 162, 0.08), transparent 60%),   /* 右侧柔和装饰 */
+        radial-gradient(600px 250px at 50% -10%, rgba(46, 213, 115, 0.06), transparent 70%);   /* 顶部中央淡淡装饰 */
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(1deg); }
+    66% { transform: translateY(10px) rotate(-1deg); }
+}
+
 .gradio-container { 
-    max-width: 1200px !important; 
-    margin: 0 auto !important; 
-    padding: 20px !important;
+    max-width: 2000px !important; /* 适当加宽，减轻留白 */
+    margin: opx 0px 0px 0px !important; 
+    padding: 8px 300px 0px 300px !important; /* 稍增内边距，增强呼吸感 */
 }
+
+/* 主容器样式 */
+.main-container {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    padding: 40px !important;
+    margin: 20px 0 !important;
+}
+
+/* 页面头部样式 */
 .main-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 0; /* 紧挨着chatbox */
+    padding: 8px 0; /* 更紧凑 */
+    background: linear-gradient(135deg, #e4ecff 0%, #eae6ff 50%, #e8f8f2 100%); /* 浅色系与整体背景协调 */
+    border-radius: 20px;
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
 .main-header h1 {
-    color: #1a73e8;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    color: #334155; /* 深灰可读性更好 */
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 1;
 }
+
 .main-header p {
-    color: #5f6368;
-    font-size: 1.1rem;
+    color: #475569; /* 次要深灰 */
+    font-size: 1.2rem;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
 }
+
+/* 聊天容器样式 */
 .chat-container {
     display: flex;
     flex-direction: column;
-    height: 70vh;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    height: 100vh; /* 提升整体高度 */
+    border-radius: 22px;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
     overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    border: 1px solid rgba(255,255,255,0.2);
 }
+
 .chatbot {
     flex-grow: 1;
     overflow-y: auto;
-    background-color: #f8f9fa;
-    padding: 15px;
-}
-.input-area {
-    padding: 15px;
-    background-color: white;
-    border-top: 1px solid #e0e0e0;
-}
-.feedback-area {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-.example-area {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f1f3f4;
-    border-radius: 8px;
-}
-.example-area h3 {
-    margin-top: 0;
-    color: #202124;
-}
-.example-btn {
-    margin: 5px;
-    border-radius: 20px;
-}
-.footer {
-    text-align: center;
-    margin-top: 30px;
-    color: #5f6368;
-    font-size: 0.9rem;
+    background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%); /* 更浅 */
+    padding: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: #c1c1c1 #f1f1f1;
 }
 
-/* 修复聊天气泡样式 - 关键部分 */
+.chatbot::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbot::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.chatbot::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.chatbot::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 输入区域样式 */
+.input-area {
+    padding: 25px;
+    background: linear-gradient(135deg, #f9fbff 0%, #ffffff 100%);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.input-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.3), transparent);
+}
+
+/* 反馈按钮区域样式 */
+.feedback-area {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.feedback-area button {
+    border-radius: 22px;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f2f6ff 0%, #eef4ff 100%) !important; /* 更浅 */
+    color: #495057 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.feedback-area button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.feedback-area button:hover::before {
+    left: 100%;
+}
+
+.feedback-area button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+/* 特殊按钮样式 */
+.feedback-area button[data-testid*="feedback"] {
+    background: linear-gradient(135deg, #f2f6ff 0%, #eef4ff 100%) !important;
+    color: #495057 !important;
+}
+
+.feedback-area button[data-testid*="feedback"]:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.feedback-area button[data-testid*="clear"] {
+    background: linear-gradient(135deg, #f2f6ff 0%, #eef4ff 100%) !important;
+    color: #495057 !important;
+}
+
+.feedback-area button[data-testid*="clear"]:hover {
+    background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%) !important;
+    color: white !important;
+}
+
+/* 输入框和发送按钮样式 */
+.input-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.input-row .textbox {
+    border-radius: 25px !important;
+    border: 2px solid rgba(102, 126, 234, 0.2) !important;
+    padding: 15px 20px !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+.input-row .textbox:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    transform: translateY(-1px) !important;
+}
+
+.input-row button {
+    border-radius: 25px !important;
+    padding: 15px 25px !important;
+    font-weight: 600 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    color: white !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.input-row button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.input-row button:hover::before {
+    left: 100%;
+}
+
+.input-row button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* 示例问题区域样式 */
+.example-area {
+    margin-top: 30px;
+    padding: 24px;
+    background: linear-gradient(135deg, #f7faff 0%, #ffffff 100%);
+    border-radius: 18px;
+    border: 1px solid rgba(30, 64, 175, 0.06);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* 已集成文档区域样式 */
+.docs-area {
+    margin-top: 16px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(30, 64, 175, 0.08);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.docs-area h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.docs-area p {
+    text-align: center;
+    color: #64748b;
+    margin: 0 0 12px 0;
+    font-size: 0.95rem;
+}
+
+.doc-btn {
+    border-radius: 14px !important;
+    padding: 12px 18px !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    color: #475569 !important;
+    border: 2px solid rgba(102, 126, 234, 0.1) !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 10px !important;
+}
+
+.doc-btn:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3) !important;
+    border-color: rgba(102, 126, 234, 0.3) !important;
+}
+
+.example-area h3 {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.example-btn {
+    margin: 8px !important;
+    border-radius: 20px !important;
+    padding: 10px 20px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3) !important;
+}
+
+.example-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* 页脚样式 */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #475569;
+    font-size: 0.95rem;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(241, 245, 249, 0.8), rgba(236, 252, 244, 0.8));
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+}
+
+/* 聊天气泡样式优化 */
 .chatbot .message {
     padding: 0 !important;
-    margin: 10px 0 !important;
+    margin: 15px 0 !important;
     border-radius: 0 !important;
     background: none !important;
     box-shadow: none !important;
     border: none !important;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .chatbot .message-row {
     margin: 0 !important;
 }
 
+/* 用户消息样式 - 右侧显示 */
 .chatbot .message .user {
-    background-color: #e8f0fe !important;
-    border-radius: 18px 18px 4px 18px !important;
-    padding: 10px 15px !important;
+    background: transparent !important; /* 透明背景 */
+    color: #334155 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
     margin: 0 0 0 auto !important;
-    max-width: 80% !important;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+    max-width: 75% !important;
+    position: relative;
+    animation: slideInRight 0.5s ease-out;
+    text-align: right !important;
 }
 
+/* AI回复样式 - 左侧显示 */
 .chatbot .message .bot {
-    background-color: white !important;
-    border-radius: 18px 18px 18px 4px !important;
-    padding: 10px 15px !important;
+    background: white !important;
+    color: #2c3e50 !important;
+    border-radius: 20px 20px 20px 5px !important;
+    padding: 15px 20px !important;
     margin: 0 auto 0 0 !important;
-    max-width: 80% !important;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important;
+    max-width: 75% !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+    border: 1px solid rgba(0,0,0,0.05) !important;
+    position: relative;
+    animation: slideInLeft 0.5s ease-out;
+    text-align: left !important;
 }
 
-/* 移除可能导致小白条的伪元素 */
+
+/* 用户长消息可折叠样式 */
+.chatbot .message.user .wrap.collapsible {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    position: relative;
+}
+.chatbot .message.user .wrap.collapsible::after {
+    content: "";
+    position: absolute;
+    bottom: 0; right: 0; left: 0;
+    height: 2.2em;
+    background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,1));
+    pointer-events: none;
+}
+.chatbot .message.user .wrap.collapsible.expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+.chatbot .message.user .wrap.collapsible.expanded::after {
+    display: none;
+}
+.chatbot .message.user .md-toggle {
+    display: inline-block;
+    margin-top: 6px;
+    color: #667eea;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 移除可能导致问题的伪元素 */
 .chatbot .message::before,
 .chatbot .message::after {
     display: none !important;
 }
 
-/* 确保聊天气泡内部没有多余元素 */
 .chatbot .message .md {
     padding: 0 !important;
     margin: 0 !important;
+    line-height: 1.6 !important;
 }
 
-/* 移除可能的边框和阴影 */
-.chatbot .message .user,
+/* 确保聊天气泡布局正确 */
+.chatbot .message {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.chatbot .message .user {
+    align-self: flex-end !important;
+}
+
 .chatbot .message .bot {
-    border: none !important;
+    align-self: flex-start !important;
 }
 
-/* 反馈按钮样式优化 */
-.feedback-area {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .gradio-container {
+        padding: 10px !important;
+    }
+
+    .main-container {
+        padding: 20px !important;
+        margin: 10px 0 !important;
+    }
+
+    .main-header h1 {
+        font-size: 2rem !important;
+    }
+
+    .chat-container {
+        height: 60vh !important;
+    }
+
+    .feedback-area {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .input-row {
+        flex-direction: column !important;
+    }
+
+    .input-row .textbox {
+        width: 100% !important;
+    }
 }
 
-.feedback-area button {
+/* 加载动画 */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 欢迎消息样式 */
+.welcome-message {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 20px;
-    padding: 8px 15px;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
 }
 
-.feedback-area button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.welcome-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    animation: shimmer 3s infinite;
 }
 
-/* 在每条消息后添加反馈按钮区域 */
-.message-feedback {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 5px;
-    margin-right: 20%;
-    gap: 10px;
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
 }
 
-.message-feedback button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+.welcome-message .emoji {
+    font-size: 2rem;
+    margin: 0 10px;
+    animation: bounce 2s infinite;
+    display: inline-block;
 }
 
-.message-feedback button:hover {
-    opacity: 1;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* 状态指示器和加载效果 */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #28a745;
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* 输入框焦点效果增强 */
+.input-row .textbox:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    transform: translateY(-1px) !important;
+    background: white !important;
+}
+
+/* 按钮点击效果 */
+.feedback-area button:active,
+.input-row button:active {
+    transform: translateY(1px) !important;
+    transition: transform 0.1s ease !important;
+}
+
+/* 滚动条美化 */
+.chatbot::-webkit-scrollbar {
+    width: 10px;
+}
+
+.chatbot::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 5px;
+}
+
+.chatbot::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+    border: 2px solid rgba(255,255,255,0.8);
+}
+
+.chatbot::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
 }
 """
 
+
+def image_to_base64(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
+
+
 # 构建Gradio UI
-with gr.Blocks(theme=gr.themes.Soft(), css=custom_css, title="SwanLab AI文档助手") as demo:
+with gr.Blocks(theme=gr.themes.Soft(), css=custom_css, title="SwanLab AI文档助手(Beta)") as demo:
     # 添加用户ID状态 - 简单创建，不添加额外参数
     user_id = gr.State("")
     last_question_id = gr.State(None)
 
-    # 页面头部
-    with gr.Column(elem_classes="main-header"):
-        gr.Markdown("# SwanLab AI文档助手")
-        gr.Markdown("### 基于SwanLab官方文档的智能问答系统")
+    logo_url = "swanlab.png"  # 本地文件路径
+    base64_image = image_to_base64(logo_url)
 
-    # 聊天主区域
+    with gr.Column(elem_classes="main-header"):
+        gr.HTML(f"""
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: row; position: relative;">
+                <div style="display: flex; align-items: center;">
+                    <img src="data:image/jpeg;base64,{base64_image}" alt="{logo_url}" style="height: 70px; margin-right: -20px; margin-top: 6px;">
+                    <h1 style="font-size:50px; color:#000000;">wanLab Copilot</h1>
+                </div>
+                <div style="font-size: 20px; color: #475569; margin-left: 15px;"> (beta)</div>
+            </div>
+            """)
+        # 聊天主区域
     with gr.Column(elem_classes="chat-container"):
         chatbot = gr.Chatbot(
             elem_classes="chatbot",
-            value=[(None, "👋 你好！我是SwanLab文档的智能问答助手。有什么可以帮助您的吗？")],
+            value=[(None,
+                    "<div class='welcome-message'><span class='emoji'>👋</span> 你好！我是SwanLab文档的智能问答助手。<span class='emoji'>🤖</span>请问有什么可以帮助您吗？<span class='emoji'>😊</span></div>")],
             show_copy_button=True,
             bubble_full_width=False,
-            height=500,
-            # 添加自定义布局，在每条消息后添加反馈按钮
+            height=640,
             layout="panel"
         )
 
         # 输入区域
         with gr.Column(elem_classes="input-area"):
-            # 反馈按钮区域（移到输入区域上方，更靠近回答）
-            with gr.Row(elem_classes="feedback-area"):
-                correct_btn = gr.Button("👍 回答有帮助", variant="secondary")
-                incorrect_btn = gr.Button("👎 回答无帮助", variant="secondary")
-                feedback_btn = gr.Button("反馈", link="https://rcnpx636fedp.feishu.cn/share/base/form/shrcnjjKzm8U5PQ3vik9pvLJVYb")
-                clear_btn = gr.Button("清空对话", variant="secondary")
-
-            with gr.Row():
+            with gr.Row(elem_classes="input-row"):
                 msg_textbox = gr.Textbox(
-                    placeholder="输入您的问题，按Enter发送...",
+                    placeholder="💭 输入您的问题，按Enter发送...",
                     container=False,
                     scale=4,
-                    show_label=False
+                    show_label=False,
+                    elem_classes="textbox"
                 )
-                submit_btn = gr.Button("发送", variant="primary", scale=1)
+                submit_btn = gr.Button("🚀 发送", variant="primary", scale=1)
+            # 反馈按钮区域
+            with gr.Row(elem_classes="feedback-area"):
+                correct_btn = gr.Button("👍 回答有帮助", variant="secondary", elem_classes="feedback-btn")
+                incorrect_btn = gr.Button("👎 回答无帮助", variant="secondary", elem_classes="feedback-btn")
+                feedback_btn = gr.Button("📝 反馈建议", variant="secondary", elem_classes="feedback-btn")
+                clear_btn = gr.Button("🗑️ 清空对话", variant="secondary", elem_classes="feedback-btn")
+
 
     # 示例问题区域
     with gr.Column(elem_classes="example-area"):
         gr.Markdown("### 💡 常见问题示例")
         examples = gr.Examples(
-            examples=get_example_questions(),
+            examples=[[q] for q in get_example_questions()],
             inputs=[msg_textbox],
             label="点击以下问题快速开始",
             examples_per_page=5
         )
 
+    # 已集成文档区域
+    with gr.Column(elem_classes="docs-area"):
+        gr.Markdown("### 📚 已集成的文档")
+        # 文档框架列表（单行三个）
+        with gr.Row():
+            swanlab_docs = gr.Button(
+                "🦢 SwanLab 文档",
+                variant="secondary",
+                elem_classes="doc-btn",
+                link="https://docs.swanlab.cn"
+            )
+            pytorch_docs = gr.Button(
+                "🔥 PyTorch 文档",
+                variant="secondary",
+                elem_classes="doc-btn",
+                link="https://pytorch.org/docs/stable/"
+            )
+            transformers_docs = gr.Button(
+                "🤗 TransF. 文档",
+                variant="secondary",
+                elem_classes="doc-btn",
+                link="https://huggingface.co/docs/transformers"
+            )
+            Verl_docs = gr.Button(
+                "🏠 Verl 文档",
+                variant="secondary",
+                elem_classes="doc-btn",
+                link="https://verl.readthedocs.io/en/latest/"
+            )
+            ascend_docs = gr.Button(
+                "💻 Ascend 文档",
+                variant="secondary",
+                elem_classes="doc-btn",
+                link="https://www.hiascend.com/zh/document"
+            )
+
     # 页脚
     with gr.Column(elem_classes="footer"):
-        gr.Markdown("© 2025 SwanLab AI文档助手 | 基于SwanLab官方文档构建")
+        gr.Markdown("© 2025 SwanLab AI文档助手 | 基于SwanLab官方文档构建 | 让AI助手更智能 🤖✨")
 
     # 添加 Gradio JavaScript API 初始化
     gradio_js = """
@@ -353,6 +901,52 @@ with gr.Blocks(theme=gr.themes.Soft(), css=custom_css, title="SwanLab AI文档�
     """
     gr.HTML(custom_html)
 
+    # 可折叠长消息的脚本
+    collapse_js = """
+    <script>
+      function enhanceUserMessages() {
+        const chat = document.querySelector('.chatbot');
+        if (!chat) return;
+        const userBubbles = chat.querySelectorAll('.message .user .md');
+        userBubbles.forEach(md => {
+          if (md.dataset.enhanced === '1') return;
+          md.dataset.enhanced = '1';
+          // 计算内容高度，超过约3行则折叠
+          const clone = md.cloneNode(true);
+          clone.style.visibility = 'hidden';
+          clone.style.position = 'absolute';
+          clone.style.height = 'auto';
+          clone.style.webkitLineClamp = 'unset';
+          document.body.appendChild(clone);
+          const tooTall = clone.scrollHeight > 72; // 约三行
+          document.body.removeChild(clone);
+          if (tooTall) {
+            md.classList.add('collapsible');
+            const toggle = document.createElement('span');
+            toggle.className = 'md-toggle';
+            toggle.textContent = '展开';
+            toggle.addEventListener('click', () => {
+              const expanded = md.classList.toggle('expanded');
+              toggle.textContent = expanded ? '收起' : '展开';
+            });
+            md.parentElement.appendChild(toggle);
+          }
+        });
+      }
+
+      const observer = new MutationObserver(() => {
+        enhanceUserMessages();
+      });
+
+      window.addEventListener('load', () => {
+        const chatRoot = document.querySelector('.chatbot');
+        if (chatRoot) observer.observe(chatRoot, { childList: true, subtree: true });
+        enhanceUserMessages();
+      });
+    </script>
+    """
+    gr.HTML(collapse_js)
+
     # 修改事件绑定，添加用户ID参数
     msg_textbox.submit(
         fn=add_user_message,
@@ -379,7 +973,7 @@ with gr.Blocks(theme=gr.themes.Soft(), css=custom_css, title="SwanLab AI文档�
     correct_btn.click(
         fn=handle_feedback,
         inputs=[gr.Textbox("correct", visible=False), last_question_id],
-        outputs=None
+        outputs=None,
     )
 
     incorrect_btn.click(
@@ -388,12 +982,22 @@ with gr.Blocks(theme=gr.themes.Soft(), css=custom_css, title="SwanLab AI文档�
         outputs=None
     )
 
+    # 为反馈意见添加跳转事件，解决按钮样式出现不兼容问题
+    def open_link():
+        return None
+    feedback_btn.click(
+        fn=open_link,
+        inputs=None,
+        outputs=None,
+        js="() => { window.open('https://rcnpx636fedp.feishu.cn/share/base/form/shrcnjjKzm8U5PQ3vik9pvLJVYb', '_blank'); }"
+    )
+
     clear_btn.click(
         fn=lambda: [None, []],
         outputs=[last_question_id, chatbot]
     )
 
-# 添加Flask路由处理用户管理 - 增强调试版
+# 添加Flask路由处理用户管理
 app = demo.app
 
 
