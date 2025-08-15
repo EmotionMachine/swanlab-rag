@@ -8,8 +8,6 @@ data/
 faiss_index_scratch/
 
 
-image/
-
 Search/test
 
 test/key/

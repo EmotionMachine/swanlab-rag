@@ -1,10 +1,20 @@
 # Swanlab-RAG文档助手构建教程
 
-SwanLab AI 文档助手**`🤖`**是一个基于 RAG (Retrieval-Augmented Generation) 技术的Agent问答系统，专门针对 SwanLab 官方文档构建。它能够理解您的问题，从文档中检索相关信息，并提供准确的回答。
+SwanLab AI 文档助手`🤖`是一个基于 RAG (Retrieval-Augmented Generation) 技术的Agent问答系统，专门针对 SwanLab 官方文档构建。它能够理解您的问题，从文档中检索相关信息，并提供准确的回答。
 
-该项目使用Gradio构建  Web 用户界面**`🌐`**，用户可以直接在聊天框输入问题，模型会基于 SwanLab 官方文档内容回答问题并且提供回答所依据的文档链接。
+该项目使用Gradio构建  Web 用户界面`🌐`，用户可以直接在聊天框输入问题，模型会基于 SwanLab 官方文档内容回答问题并且提供回答所依据的文档链接。
+
+<div align="center">
+  <figure>
+  <img src="./assets/rag-login.png" alt="rag-demo"  width="800" />
+  <figcaption>Swanlab官方文档入口</figcaption>
+  </figure>
+</div>
+Swnlab文档助手在线使用链接：[https://chat.swanlab.cn/](https://chat.swanlab.cn/)
 
 ------
+
+
 
 
 
@@ -63,8 +73,6 @@ LLM_MODEL = "填写LLM模型"            # 如 "gpt-3.5-turbo"
 ### 📄文件结构
 
 	确保项目目录包含以下文件：
-	
-	    ```text
 	    .
 	    ├──Search/
 	    │ 	├──documents_analyzer_url.py	# 文档解析与分块
@@ -78,7 +86,6 @@ LLM_MODEL = "填写LLM模型"            # 如 "gpt-3.5-turbo"
 	    ├── app_deploy.py                	# Gradio 交互界面
 	    ├── swanlab_docs_Internet8-2.json 	# 文档元数据（URL/标题映射）
 	    └── document_blocks.txt          	# 分块后的文档内容（可选）
-	    ```
 
 ------
 
@@ -123,7 +130,7 @@ python content.py && \
    - 如果从 GitHub 爬取文档（`scrape_swanlab_docs_Internet.py`），需在代码中替换 `GITHUB_TOKEN`。
 -  **Faiss 版本兼容性🐍**
    - 确保 `faiss-cpu` 或 `faiss-gpu` 版本与 Python 环境匹配。
--  **资源占用**📊****
+-  **资源占用**📊
    - 向量检索可能消耗内存，建议至少 4GB 可用内存。
--  **网络请求**🌐****
+-  **网络请求**🌐
    - 如果使用外部 API（如 OpenAI），需确保网络能访问 `BASE_URL`。
