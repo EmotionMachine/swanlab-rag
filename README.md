@@ -6,7 +6,7 @@ SwanLab AI 文档助手`🤖`是一个基于 RAG (Retrieval-Augmented Generation
 
 <div align="center">
   <figure>
-  <img src="./assets/rag-login.png" alt="rag-demo"  width="800" />
+  <img src="./image/rag-login.png" alt="rag-demo"  width="800" />
   <figcaption>Swanlab官方文档入口</figcaption>
   </figure>
 </div>
