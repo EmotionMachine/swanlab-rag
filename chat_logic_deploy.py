@@ -11,7 +11,7 @@ import re
 
 class Chatbot:
     def __init__(self,
-                 index_path="faiss_index_scratch_1",
+                 index_path="faiss_index_scratch_all",
                  url_map_path="swanlab_docs_Internet8-2.json",
                  db_path="/data/user_questions.db"):
         print("正在初始化 Chatbot...")

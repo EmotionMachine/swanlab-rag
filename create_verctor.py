@@ -9,7 +9,7 @@ import time
 # 源文档路径
 SOURCE_DOCUMENT_PATH = "Search/document_blocks.txt"
 # 本地向量数据库的保存路径
-FAISS_INDEX_PATH = "faiss_index_scratch_1"
+FAISS_INDEX_PATH = "faiss_index_scratch_all"
 
 # Embedding 模型配置
 EMBEDDING_MODEL = "填写Embedding模型"##Qwen/Qwen3-Embedding-0.6B
